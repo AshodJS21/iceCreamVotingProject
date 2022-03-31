@@ -1,3 +1,4 @@
+/*
 const {model, DataTypes} = require('sequlize');
 const bd = require('./db');
 
@@ -33,3 +34,4 @@ User.init ({
 );
 
 module.exports = User
+*/
