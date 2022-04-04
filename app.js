@@ -1,15 +1,16 @@
 const express = require("express");
 //const fs = require("fs/promises");
-//const session = require('express-session');
-
 const { authenticate } = require("./db");
 const Vote = require("./models/Vote");
+
 
 const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
-const port = process.env.port || 8008;
+
+
+
 
 app.get("/", async (req, res) => {
   //const fileContent = await fs.readFile('./public/index', {encoding: 'utf8'});
@@ -17,20 +18,23 @@ app.get("/", async (req, res) => {
   res.render("index");
 });
 
+
 const addVote = async (req, res, next) => {
   const existingUser = await Vote.findOne({
-    where: { email: req.body.email },
-  }); //productsID: req.body.productsID}});
+    where: { email: req.body.email }, //iceCream: req.body.icecream},
+  });
   if (existingUser) {
     next();
   } else {
     await Vote.create({
-      iceCream: req.body.icecream,
       email: req.body.email,
+      iceCream: req.body.icecream,
+      Votes: req.body.vote,
     });
     next();
   }
 };
+
 
 const getAllVotes = async (req, res, next) => {};
 
@@ -39,11 +43,18 @@ app.get("/", getAllVotes, (req, res) => {
   res.render("index");
 });
 
+
 //2
 app.post("/vote", addVote, (req, res) => {
   console.log(req.body);
   res.redirect("/");
 });
+
+
+
+
+//bd browser
+//select iceCream, count (iceCream) from Votes group by iceCream;
 
 authenticate();
 //app.listen(port, () => console.log("terminal is running" + port));

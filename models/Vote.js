@@ -16,7 +16,11 @@ Vote.init(
     iceCream: {
       type: DataTypes.STRING,
     },
+    Votes :{
+      type: DataTypes.INTEGER,
+    }
   },
+  
   { sequelize: db, modelName: "Vote" }
 );
 
