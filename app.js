@@ -1,6 +1,6 @@
 const express = require("express");
 //const fs = require("fs/promises");
-const { authenticate } = require("./db");
+//const { authenticate } = require("./db");
 const Vote = require("./models/Vote");
 
 
@@ -52,10 +52,8 @@ app.post("/vote", addVote, (req, res) => {
 
 
 
-
 //bd browser
 //select iceCream, count (iceCream) from Votes group by iceCream;
 
-authenticate();
-//app.listen(port, () => console.log("terminal is running" + port));
+//authenticate();
 app.listen(8080);

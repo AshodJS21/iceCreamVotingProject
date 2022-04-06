@@ -1,3 +1,4 @@
+/*
 const db = require("./db");
 const Vote = require("../models/Vote");
 
@@ -12,3 +13,4 @@ async function authenticate() {
 }
 
 module.exports = { authenticate };
+*/
