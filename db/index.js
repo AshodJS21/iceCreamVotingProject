@@ -1,16 +1,9 @@
-/*
-const db = require("./db");
-const Vote = require("../models/Vote");
+const Sequelize = require('sequelize')
 
-async function authenticate() {
-  try {
-    db.authenticate();
-    Vote.sync();
-    //console.log("Authentication  works");
-  } catch (error) {
-    //console.log("databas has an error : " + error);
-  }
-}
+const sequelize = new Sequelize({
+    dialect: "sqlite",
+    storage: './db.db',
+});
 
-module.exports = { authenticate };
-*/
+
+module.exports = sequelize;

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<section class="homeHeader">
+    <h3>Welcome <%=user.userName%>!</h3>
+    <form action="/logout" method="POST">
+        <button>Log Out</button>
+    </form>
+</section>
+
+<section class="homeMain">
+    <div class="wrapper">
+        <section>
+            <h2>Our Products</h2>
+            <ul class="productList">
+                <% for(var i=0; i<top10Flavors.length; i++) {%>
+                    <div class="list">
+                        <li><%= top10Flavors[i].flavorName %></li>
+                        <li><%= top10Flavors[i].numVotes %></li>
+                    </div>
+                    <% } %>
+                </ul>
+            </section>
+
+            <div class="inputWrapper">
+                <h2>We Need Your Support</h2>
+                <form action="/voting" method="post" class="voting-form">
+                    <select name="flavor" id="flavor">
+                    <% for(var i=0; i<allFlavors.length; i++) {%>
+                    <option value="<%=allFlavors[i].flavorId%>"><%=allFlavors[i].flavorName%></option>
+                    <% } %>
+                </select>
+
+                <button>Vote</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section class="addProduct">
+    <form action="/addflavor" method="post">
+        <label for="flavorname">Would you like to add your favorite product?</label>
+        <input type="text" id="flavorname" name="flavorname" required>
+        <button>Add</button>
+    </form>
+</section>
+
+</body>
+</html>
