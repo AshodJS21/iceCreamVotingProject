@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-body,html{
+body{
   height: 100%;
   background-image: url("../img/picOne.jpg");
   background-size:cover;
@@ -121,11 +121,3 @@ a:hover,.voting-form button:hover, button:hover {
   color: rgb(0, 0, 0);
 } 
 
-/*
-.addProduct{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-weight: bold;
-}
-*/
